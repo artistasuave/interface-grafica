@@ -2,6 +2,7 @@ package exemplo06;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
@@ -12,6 +13,7 @@ public class ExemploJTextArea {
     public JFrame jFrame;
     public JTextArea jTextArea;
     public JLabel jLabelDescricao;
+    public JScrollPane jScrollPane;
     
     public ExemploJTextArea(){
     gerarTela();
@@ -31,23 +33,25 @@ public class ExemploJTextArea {
     }
 
     public void instanciarComponentes() {
+        jScrollPane = new JScrollPane();
         jTextArea = new JTextArea();
         jLabelDescricao = new JLabel("Descricao");
+        jScrollPane.setViewportView(jTextArea);
     }
 
     public void gerarDimensoes(){
         jLabelDescricao.setSize(70,20);
-        jTextArea.setSize(450,420);
+        jScrollPane.setSize(450,420);
     }
     
     public void gerarLocalizacoes() {
         jLabelDescricao.setLocation(10,10);
-        jTextArea.setLocation(10,35);
+        jScrollPane.setLocation(10,35);
     }
 
     public void adicionarComponentes() {
         jFrame.add(jLabelDescricao);
-        jFrame.add(jTextArea);
+        jFrame.add(jScrollPane);
     }
 
 }
