@@ -2,6 +2,7 @@
 import exemplo07.ExemploJRadioButton01;
 import exemplo08.JFrameBaseInterface;
 import exemplo10.ExemploHospitalJFrame;
+import exemplo11.ExemploJFrameKeyPressed;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -20,6 +21,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         gerarLocalizacoes();
         adicionarComponentes();
         acaoJButton00();
+        acaoJButton11();
         jFrame.setVisible(true);
     }
 
@@ -29,6 +31,8 @@ public class ExemploTudo implements JFrameBaseInterface {
     private JButton jButton08;
     private JButton jButton09;
     private JButton jButton10;
+    private JButton jButton11;
+   
 
     @Override
     public void gerarTela() {
@@ -46,6 +50,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jFrame.add(jButton08);
         jFrame.add(jButton09);
         jFrame.add(jButton10);
+        jFrame.add(jButton11);
     }
 
     @Override
@@ -55,6 +60,7 @@ public class ExemploTudo implements JFrameBaseInterface {
         jButton08 = new JButton("Exemplo 08");
         jButton09 = new JButton("Exemplo 09");
         jButton10 = new JButton("Exemplo 10");
+        jButton11 = new JButton("Exemplo 11");
     }
 
     public static void main(String[] args) {
@@ -77,11 +83,13 @@ public class ExemploTudo implements JFrameBaseInterface {
     @Override
     public void gerarLocalizacoes() {
         jButton10.setLocation(230, 230);
+        jButton11.setLocation(335,335);
     }
 
     @Override
     public void gerarDimensoes() {
         jButton10.setSize(100, 100);
+        jButton11.setSize(100,100);
     }
 
     public void acaoJButton00() {
@@ -130,6 +138,15 @@ public class ExemploTudo implements JFrameBaseInterface {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ExemploHospitalJFrame();
+            }
+        });
+    }
+    
+    public void acaoJButton11(){
+        jButton11.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                new ExemploJFrameKeyPressed();
             }
         });
     }
