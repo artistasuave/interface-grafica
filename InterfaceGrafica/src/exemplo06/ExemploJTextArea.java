@@ -14,15 +14,16 @@ public class ExemploJTextArea {
     public JTextArea jTextArea;
     public JLabel jLabelDescricao;
     public JScrollPane jScrollPane;
-    
-    public ExemploJTextArea(){
-    gerarTela();
-    instanciarComponentes();
-    gerarDimensoes();
-    gerarLocalizacoes();
-    adicionarComponentes();
-    jFrame.setVisible(true);
-}
+
+    public ExemploJTextArea() {
+        gerarTela();
+        instanciarComponentes();
+        gerarDimensoes();
+        gerarLocalizacoes();
+        adicionarComponentes();
+        configurarJScrollPane();
+        jFrame.setVisible(true);
+    }
 
     public void gerarTela() {
         jFrame = new JFrame("Exemplo JTextArea");
@@ -36,17 +37,16 @@ public class ExemploJTextArea {
         jScrollPane = new JScrollPane();
         jTextArea = new JTextArea();
         jLabelDescricao = new JLabel("Descricao");
-        jScrollPane.setViewportView(jTextArea);
     }
 
-    public void gerarDimensoes(){
-        jLabelDescricao.setSize(70,20);
-        jScrollPane.setSize(450,420);
+    public void gerarDimensoes() {
+        jLabelDescricao.setSize(70, 20);
+        jScrollPane.setSize(450, 420);
     }
-    
+
     public void gerarLocalizacoes() {
-        jLabelDescricao.setLocation(10,10);
-        jScrollPane.setLocation(10,35);
+        jLabelDescricao.setLocation(10, 10);
+        jScrollPane.setLocation(10, 35);
     }
 
     public void adicionarComponentes() {
@@ -54,4 +54,13 @@ public class ExemploJTextArea {
         jFrame.add(jScrollPane);
     }
 
+    public void configurarJScrollPane() {
+        jScrollPane.setViewportView(jTextArea);
+        jScrollPane.setHorizontalScrollBarPolicy(
+                jScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        jTextArea.setLineWrap(true);
+        
+    }
 }
